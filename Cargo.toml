@@ -1,0 +1,41 @@
+[package]
+name          = "cw721-rewards"
+description   = "Archway reward distribution as default utility for cw721"
+authors       = [
+  "irfi <irfi147@gmail.com",
+]
+version       = "0.17.0"
+edition       = "2021"
+license       = "Apache-2.0"
+repository    = "https://github.com/CosmWasm/cw-nfts"
+homepage      = "https://cosmwasm.com"
+documentation = "https://docs.cosmwasm.com"
+rust-version  = "1.65"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+[dependencies]
+cosmwasm-schema = "1.2.1"
+cosmwasm-std    = "1.2.1"
+cw2             = { git = "https://github.com/mars-protocol/cw-plus", rev = "1a3a944" }
+cw721-base-016  = { version = "0.16.0", package = "cw721-base" }
+cw-ownable      = "0.5.0"
+cw-storage-plus = "1.0.1"
+cw-utils        = "1.0.1"
+schemars        = "0.8.11"
+serde           = { version = "1.0.152", default-features = false, features = ["derive"] }
+thiserror       = "1.0.38"
+cw721           = { version = "0.17.0" }
+archway-bindings = { version = "0.1.0" }
+serde-json-wasm = "0.5"
+
+
+[dev-dependencies]
+cw-multi-test   = "0.16.2"
